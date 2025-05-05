@@ -43,7 +43,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.4" />
-        <PackageReference Include="Soenneker.Cosmos.Repository" Version="3.0.6863" />
+        <PackageReference Include="Soenneker.Cosmos.Repository" Version="3.0.6867" />
         <PackageReference Include="Soenneker.Documents.General" Version="3.0.73" />
     </ItemGroup>
 </Project>
