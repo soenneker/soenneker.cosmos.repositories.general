@@ -14,9 +14,6 @@ namespace Soenneker.Cosmos.Repositories.General.Abstract;
 public interface IGeneralRepository<TDocument> : ICosmosRepository<TDocument> where TDocument : class
 {
     [Pure]
-    new ValueTask<TDocument?> GetItem(string id, CancellationToken cancellationToken = default);
-
-    [Pure]
     new ValueTask<List<TDocument>> GetAll(double? delayMs, CancellationToken cancellationToken = default);
 
     [Pure]

@@ -10,7 +10,6 @@ using Soenneker.Cosmos.Repositories.General.Abstract;
 using Soenneker.Cosmos.Repository;
 using Soenneker.Documents.General;
 using Soenneker.Dtos.IdPartitionPair;
-using Soenneker.Extensions.String;
 using Soenneker.Extensions.ValueTask;
 using Soenneker.Utils.BackgroundQueue.Abstract;
 using Soenneker.Utils.Method;
@@ -28,19 +27,6 @@ public abstract class GeneralRepository<TDocument> : CosmosRepository<TDocument>
     protected GeneralRepository(ICosmosContainerUtil cosmosContainerUtil, IConfiguration config, ILogger<CosmosRepository<TDocument>> logger,
         IUserContext userContext, IBackgroundQueue backgroundQueue) : base(cosmosContainerUtil, config, logger, userContext, backgroundQueue)
     {
-    }
-
-    public override async ValueTask<TDocument?> GetItem(string id, CancellationToken cancellationToken = default)
-    {
-        (string partitionKey, string documentId) = id.ToSplitId();
-
-        IQueryable<TDocument> query = await BuildQueryable(null, cancellationToken).NoSync();
-
-        query = query.Where(c => c.PartitionKey == partitionKey && c.DocumentId == documentId);
-        query = query.Where(c => c.EntityType == EntityType);
-        query = query.Take(1);
-
-        return await GetItem(query, cancellationToken).NoSync();
     }
 
     public override async ValueTask<List<TDocument>> GetAll(double? delayMs = null, CancellationToken cancellationToken = default)
