@@ -91,6 +91,8 @@ public abstract class GeneralRepository<TDocument> : CosmosRepository<TDocument>
 
             foreach (var result in results)
             {
+                cancellationToken.ThrowIfCancellationRequested();
+
                 await DeleteItem(result.DocumentId, result.PartitionKey, useQueue, cancellationToken).NoSync();
             }
         }, cancellationToken).NoSync();
