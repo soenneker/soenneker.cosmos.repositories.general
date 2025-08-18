@@ -3,14 +3,14 @@ using Microsoft.Extensions.Logging;
 using Soenneker.Cosmos.Container.Abstract;
 using Soenneker.Cosmos.Repositories.General.Abstract;
 using Soenneker.Cosmos.Repositories.Shared;
-using Soenneker.Documents.General;
+using Soenneker.Documents.Typed;
 using Soenneker.Utils.BackgroundQueue.Abstract;
 using Soenneker.Utils.UserContext.Abstract;
 
 namespace Soenneker.Cosmos.Repositories.General;
 
 ///<inheritdoc cref="IGeneralRepository{TDocument}"/>
-public abstract class GeneralRepository<TDocument> : SharedRepository<TDocument>, IGeneralRepository<TDocument> where TDocument : GeneralDocument
+public abstract class GeneralRepository<TDocument> : SharedRepository<TDocument>, IGeneralRepository<TDocument> where TDocument : TypedDocument
 {
     public override string ContainerName => "general";
 
