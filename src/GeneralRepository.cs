@@ -5,6 +5,7 @@ using Soenneker.Cosmos.Repositories.General.Abstract;
 using Soenneker.Cosmos.Repositories.Shared;
 using Soenneker.Documents.Typed;
 using Soenneker.Utils.BackgroundQueue.Abstract;
+using Soenneker.Utils.MemoryStream.Abstract;
 using Soenneker.Utils.UserContext.Abstract;
 
 namespace Soenneker.Cosmos.Repositories.General;
@@ -15,7 +16,8 @@ public abstract class GeneralRepository<TDocument> : SharedRepository<TDocument>
     public override string ContainerName => "general";
 
     protected GeneralRepository(ICosmosContainerUtil cosmosContainerUtil, IConfiguration config, ILogger<GeneralRepository<TDocument>> logger,
-        IUserContext userContext, IBackgroundQueue backgroundQueue) : base(cosmosContainerUtil, config, logger, userContext, backgroundQueue)
+        IUserContext userContext, IBackgroundQueue backgroundQueue, IMemoryStreamUtil memoryStreamUtil) : base(cosmosContainerUtil, config, logger, userContext,
+        backgroundQueue, memoryStreamUtil)
     {
     }
 }
