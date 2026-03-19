@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
@@ -8,7 +8,6 @@
         <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
         <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
         <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
-
     </PropertyGroup>
 
     <ItemGroup>
@@ -21,18 +20,20 @@
         </Content>
     </ItemGroup>
 
-    <ItemGroup><PackageReference Include="Soenneker.Utils.Test" Version="4.0.313" />
+    <ItemGroup>
+        <PackageReference Include="Soenneker.Utils.Test" Version="4.0.313" />
         <PackageReference Include="Soenneker.Tests.FixturedUnit" Version="4.0.2285" />
         <PackageReference Include="xUnit.v3" Version="3.2.2" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Soenneker.Cosmos.Repositories.General\Soenneker.Cosmos.Repositories.General.csproj" />
+        <ProjectReference
+            Include="..\..\src\Soenneker.Cosmos.Repositories.General\Soenneker.Cosmos.Repositories.General.csproj" />
     </ItemGroup>
 
     <ItemGroup>
         <Content Include="testconfig.json">
-          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
 
