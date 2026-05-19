@@ -44,6 +44,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.Cosmos.Repositories.Shared" Version="4.0.288" />
+        <PackageReference Include="Soenneker.Cosmos.Repositories.Shared" Version="4.0.289" />
     </ItemGroup>
 </Project>
