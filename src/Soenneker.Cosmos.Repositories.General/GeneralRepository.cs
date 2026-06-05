@@ -13,6 +13,9 @@ namespace Soenneker.Cosmos.Repositories.General;
 ///<inheritdoc cref="IGeneralRepository{TDocument}"/>
 public abstract class GeneralRepository<TDocument> : SharedRepository<TDocument>, IGeneralRepository<TDocument> where TDocument : TypedDocument
 {
+    /// <summary>
+    /// Gets or sets container name.
+    /// </summary>
     public override string ContainerName => "general";
 
     protected GeneralRepository(ICosmosContainerUtil cosmosContainerUtil, IConfiguration config, ILogger<GeneralRepository<TDocument>> logger,
