@@ -10,7 +10,6 @@ using Soenneker.Utils.UserContext.Abstract;
 
 namespace Soenneker.Cosmos.Repositories.General;
 
-/// <inheritdoc cref="IGeneralRepository{TDocument}"/>
 public abstract class GeneralRepository<TDocument> : SharedRepository<TDocument>, IGeneralRepository<TDocument> where TDocument : TypedDocument
 {
     /// <summary>
